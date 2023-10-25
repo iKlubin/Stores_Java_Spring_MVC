@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Stores</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.css">
+  <style>
+    .store-container {
+      width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      background-color: #f9f9f9;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="mdc-typography--headline4" style="margin-top: 50px; text-align: center;">Магазины</div>
+  <form style="text-align: center; margin-top: 50px; margin-bottom: 50px" th:action="@{/search}" method="get">
+    <label>
+      <input type="text" name="query" placeholder="Искать..." />
+    </label>
+    <button type="submit">Поиск</button>
+  </form>
+  <div th:each="store : ${stores}" class="store-container">
+    <div class="mdc-typography--subtitle1" th:text="${store.name}" style="color: #333;"></div>
+    <div class="mdc-typography--body1" th:text="${store.category}" style="color: #666;"></div>
+    <div class="mdc-typography--body2" th:text="${store.description}" style="color: #999;"></div>
+    <a th:href="@{/store/{id}(id=${store.id})}">Подробнее</a>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/11.0.0/material-components-web.min.js"></script>
+</body>
+</html>

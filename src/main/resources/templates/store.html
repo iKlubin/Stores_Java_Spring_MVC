@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Store</title>
+</head>
+<body>
+    <h2 th:text="${store.name}"></h2>
+    <p th:text="'Адрес: ' + ${store.address}"></p>
+    <p th:text="'Телефон: ' + ${store.phone}"></p>
+    <p th:text="'Email: ' + ${store.email}"></p>
+    <p th:text="'Сайт: ' + ${store.website}"></p>
+    <p th:text="'Категория: ' + ${store.category}"></p>
+    <p th:text="'Описание: ' + ${store.description}"></p>
+    <a th:href="@{/store/{id}/edit(id=${store.id})}">Изменить</a>
+    <a th:href="@{/store/{id}/delete(id=${store.id})}" onclick="return confirm('Вы действительно хотите удалить?')">Удалить</a>
+</body>
+</html>

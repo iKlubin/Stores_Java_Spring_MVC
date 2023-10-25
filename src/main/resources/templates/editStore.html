@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Store</title>
+</head>
+<body>
+<form th:object="${store}" th:action="@{/store/{id}/update(id=${store.id})}" method="post">
+    <input type="text" th:field="*{name}" placeholder="Name"/><br/>
+    <input type="text" th:field="*{address}" placeholder="Address"/><br/>
+    <input type="text" th:field="*{phone}" placeholder="Phone"/><br/>
+    <input type="text" th:field="*{email}" placeholder="Email"/><br/>
+    <input type="text" th:field="*{website}" placeholder="Website"/><br/>
+    <input type="text" th:field="*{category}" placeholder="Category"/><br/>
+    <textarea th:field="*{description}" placeholder="Description"></textarea><br/>
+    <button type="submit">Update Store</button>
+</form>
+</body>
+</html>
